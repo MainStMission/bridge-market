@@ -1,0 +1,39 @@
+/**
+ * All named queries in this file
+ **/
+
+ // Returns all flights 
+ query AllNeighbors {
+   description: "Returns all Neighbors in the registry"
+   statement:  
+      SELECT  org.acme.airline.flight.Flight
+ }
+
+ query NeighorByName {
+   description: "Returns a specific neighbor"
+   statement:  
+      SELECT  org.acme.airline.flight.Flight
+  	  WHERE   (flightNumber == _$flight_number)
+  } 
+
+  query NeighborTokens {
+   description: "Returns all tokens in the registry"
+   statement:  
+      SELECT  org.acme.airline.flight.Flight
+  	  WHERE   (route.origin == _$origin_airport AND route.destination  == _$destination_airport )
+  }
+
+ query Households  {
+   description: "Returns all households in the registry"
+   statement:  
+      SELECT  org.acme.airline.flight.Flight
+  	  WHERE   (route.origin == _$origin_airport AND route.destination  == _$destination_airport)
+      ORDER BY [flightNumber ASC]
+  } 
+
+
+  query AllTokens {
+  description: "Returns all Tokens in the registry"
+  statement:  
+    SELECT  org.acme.airline.aircraft.Aircraft
+}
